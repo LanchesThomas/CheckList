@@ -6,6 +6,7 @@
 .container {
     width: 100%;
     height: 100vh;
+    min-height: 100%;
     background-color:#2F4858;
     display: flex;
     justify-content: center;
@@ -20,6 +21,10 @@
     justify-content: flex-start;
     
 
+}
+
+.red {
+    background-color: red;
 }
 
 .title {
@@ -86,19 +91,31 @@ button {
 }
 
 .containerDivNewElement {
-    width: 50%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    column-gap: 20px;
+    row-gap: 10px;
+
 }
 
 .divNewElement {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     width: 100%;
+    border: 1px solid #ff8000;
+    padding: 5px;
 }
 
 .textNewElement {
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     color: #fff
+}
+
+.divSupp {
+    display: flex;
+    gap: 5px;
 }
 
 .to-dos .supp {
@@ -113,7 +130,7 @@ button {
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     color: #fff;
-    font-size: 32px;
+    font-size: 22px;
 }
 
 .checked {
