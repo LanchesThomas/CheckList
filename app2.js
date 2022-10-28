@@ -21,10 +21,14 @@ function ajouter() {
     divNewElement.appendChild(divSupp);
 
     let removeNewElement = document.createElement('p');
-    removeNewElement.innerText = '-';
     removeNewElement.classList.add('supp');
     removeNewElement.classList.add('remove');
     divSupp.appendChild(removeNewElement);
+
+    let textRemoveNewElement = document.createElement('span');
+    textRemoveNewElement.innerText = '-';
+    textRemoveNewElement.classList.add('minus');
+    removeNewElement.appendChild(textRemoveNewElement);
 
     let checkNewElement = document.createElement('p');
     checkNewElement.classList.add('supp');
@@ -32,6 +36,7 @@ function ajouter() {
     divSupp.appendChild(checkNewElement);
 
     checkFull(checkNewElement);
+    removeMinus(removeNewElement);
 }
 
 function checkFull(checkNewElement) {
@@ -39,20 +44,39 @@ function checkFull(checkNewElement) {
 
     for (let i of checkedElement) {
         checkNewElement.addEventListener('click', function () {
-            this.classList.toggle('checked');
-            if (this.classList.contains('checked')) {
-                this.classList.remove('checkedd');
+            if (this.classList.contains('check')) {
+                this.classList.toggle('checked');
+            } else if (this.classList.contains('checked')) {
+                this.classList.remove('checked');
             }
         });
     }
 }
 
+
+function removeMinus(removeNewElement) {
+    let removedElement = document.querySelectorAll('.remove');
+    let deletedElement = document.querySelector('.divNewElement')
+
+    for (let i of removedElement) {
+        removeNewElement.addEventListener('click', function () {
+            deletedElement.remove();
+        });
+    }
+}
+
 addToDoButton.addEventListener('click', function () {
-    ajouter();
+    if (!inputField.value) {
+    } else {
+        ajouter();
+        inputField.value = '';
+    }
 });
 
 inputField.addEventListener('keypress', function (event) {
-    if (event.key == 'Enter') {
+    if (event.key == 'Enter' && !inputField.value) {
+    } else if (event.key == 'Enter') {
         ajouter();
+        inputField.value = '';
     }
 });

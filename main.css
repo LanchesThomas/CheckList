@@ -32,6 +32,7 @@
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     color:white;
+    white-space: nowrap;;
 }
 
 .fieldContainer {
@@ -70,6 +71,7 @@ input:active {
 
 button {
     width: 25%;
+    min-width: 150px;
     font-family: Roboto, sans-serif;
     font-weight: 600;
     font-size: 14px;
@@ -116,7 +118,9 @@ button {
 .divSupp {
     display: flex;
     gap: 5px;
+    cursor: pointer;
 }
+
 
 .to-dos .supp {
     border: 2px solid #ff8000;
@@ -124,15 +128,26 @@ button {
     padding: 5px;
     width: 10px;
     height: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    color: #fff;
     font-size: 22px;
+    position:relative;
+}
+
+.to-dos .supp .minus {
+    color: #ff8000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
 }
 
 .checked {
     background-color: red;
+}
+
+@media screen and (max-width: 992px) {
+    .containerDivNewElement {
+        grid-template-columns: 1fr;
+    }
 }
